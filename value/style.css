@@ -1,0 +1,161 @@
+
+html, body {
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+    align-items: center;
+    background-color: #f3f3f3;
+}
+
+/* General calendar styling */
+.calendar {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 10px;
+}
+
+/* Calendar date styling */
+.calendar-date {
+    background-color: #0073e6;
+    color: white;
+    font-weight: bold;
+    padding: 12px;
+    text-align: left;
+    border-radius: 8px 8px 0 0;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Table Header styling */
+.calendar-header {
+    background-color: #f1f1f1;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.calendar-header th {
+    padding: 10px 15px;
+    text-align: center;
+}
+
+.calendar-header .calendar-time {
+    width: 30%;  /* Increased width for Time */
+    text-align: center;
+}
+
+.calendar-header .calendar-currency,
+.calendar-header .calendar-forecast,
+.calendar-header .calendar-previous {
+    width: 15%;  /* Adjusted width for other columns */
+}
+.calendar-header .calendar-currency {
+    text-align: left;
+}
+
+.calendar-header .calendar-event-title {
+    width: 40%;  /* Adjusted width for event title */
+    text-align: left;
+}
+
+/* Time cell styling */
+.calendar-time {
+    width: 25%;  /* Consistent with header */
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+    padding-bottom: 5px;
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+/* Data row styling */
+.calendar-row, .calendar-sub-row {
+    border-bottom: 1px solid #eee;
+    background-color: #f9f9f9;
+}
+
+/* Currency and Event styling */
+.calendar-currency, .calendar-event-title {
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+.calendar-currency {
+    color: #0073e6;
+    width: 15%;
+}
+
+.calendar-event-title {
+    color: #333;
+    width: 45%;
+}
+
+/* Forecast and Previous styling */
+.calendar-forecast, .calendar-previous {
+    text-align: right;
+    font-weight: bold;
+    padding: 10px 15px;
+    width: 15%;
+}
+
+.calendar-forecast {
+    color: #28a745; /* Green color for forecast */
+}
+
+.calendar-previous {
+    color: #dc3545; /* Red color for previous */
+}
+
+/* Responsive design for mobile screens */
+@media (max-width: 500px) {
+    .calendar-header {
+        display: none; /* Hide header on mobile */
+    }
+
+    .calendar-row, .calendar-sub-row {
+        display: block;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .calendar-time {
+        text-align: center;
+        font-size: 20px;
+        color: #0073e6;
+        padding-bottom: 10px;
+        width: 100%;
+    }
+
+    .calendar-currency, .calendar-event-title {
+        display: block;
+        width: 100%;
+        text-align: left;
+        margin-bottom: 5px;
+    }
+
+    .calendar-forecast, .calendar-previous {
+        display: inline-block;
+        text-align: right;
+        width: 100%;
+        margin-bottom: 5px;
+        font-size: 20px;
+    }
+
+    .calendar-forecast::before {
+        content: "Forecast: ";
+        color: #28a745; /* Green color for forecast label */
+    }
+
+    .calendar-previous::before {
+        content: "Previous: ";
+        color: #dc3545; /* Red color for previous label */
+    }
+}

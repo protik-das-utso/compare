@@ -1,0 +1,310 @@
+/* General Styling */
+html, body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f3f3f3;
+    margin: 0;
+    overflow: hidden;
+}
+
+.welcome-message {
+    font-size: 80px;
+    font-family: Arial, sans-serif;
+    color: #28a745;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    text-align: center;
+}
+.descrip {
+    font-size: 40px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+/* Container Styling */
+.container1, .container2 {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    color: #000;
+    box-shadow: 0 0 20px 35px rgba(255, 0, 255, 0.5), 
+                0 0 30px rgba(0, 255, 255, 0.5),
+                0 0 40px rgba(0, 255, 0, 0.5), 
+                0 0 50px rgba(255, 255, 0, 0.5);
+    animation: neonMove 5s linear infinite;
+}
+
+/* Neon Effect and Shadows */
+.container1, .container2 {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.5),
+                0 0 40px rgba(0, 255, 0, 0.5), 0 0 50px rgba(255, 255, 0, 0.5);
+}
+
+.container2 {
+    animation: neonMove 15s ease-in-out infinite;
+}
+
+@keyframes neonMove {
+    0% {
+        box-shadow: 0 0 20px rgba(255, 0, 255, 0.5), 
+                    0 0 30px rgba(0, 255, 255, 0.5),
+                    0 0 40px rgba(0, 255, 0, 0.5), 
+                    0 0 50px rgba(255, 255, 0, 0.5);
+    }
+    25% {
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 
+                    0 0 30px rgba(0, 255, 0, 0.5),
+                    0 0 40px rgba(255, 255, 0, 0.5), 
+                    0 0 50px rgba(255, 0, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.5), 
+                    0 0 30px rgba(255, 255, 0, 0.5),
+                    0 0 40px rgba(255, 0, 255, 0.5), 
+                    0 0 50px rgba(0, 255, 255, 0.5);
+    }
+    75% {
+        box-shadow: 0 0 20px rgba(255, 255, 0, 0.5), 
+                    0 0 30px rgba(255, 0, 255, 0.5),
+                    0 0 40px rgba(0, 255, 255, 0.5), 
+                    0 0 50px rgba(0, 255, 0, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(255, 0, 255, 0.5), 
+                    0 0 30px rgba(0, 255, 255, 0.5),
+                    0 0 40px rgba(0, 255, 0, 0.5), 
+                    0 0 50px rgba(255, 255, 0, 0.5);
+    }
+}
+
+/* Input Fields */
+input {
+    padding: 10px;
+    margin: 10px 0;
+    width: 90%;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 16px;
+}
+
+/* Buttons */
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Loading Spinner */
+#loading {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    height: 100%;
+    width: 100%;
+    padding: 20px; /* Add padding only when visible */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow only when visible */
+    background-color: #fff; /* Background color only when visible */
+}
+
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #28a745;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Time and Date Display */
+#currentTime {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+    font-size: 18px;
+}
+
+/* Result Section */
+#result {
+    margin-top: 20px;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 18px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    color: #333;
+    white-space: pre-wrap; 
+}
+
+
+
+.help-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.help-icon img {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-sahdow 0.3s ease;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 40px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.close {
+    margin-top: -20px;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.get-now, .telegram-link {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.get-now a, .telegram-link a {
+    text-decoration: none;
+    color: #0088cc;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    transition: color 0.3s ease;
+}
+
+.get-now a:hover, .telegram-link a:hover {
+    color: #005f99;
+    transform: translateY(-5px);
+}
+
+
+.telegram-logo {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+}
+
+.get-now a:hover .telegram-logo, .telegram-link a:hover .telegram-logo{
+    transform: scale(1.2);
+}
+
+.get-now {
+    margin-right: 10px;
+}
+.get-now p{
+    color: red !important;
+}
+.telegram-link {
+    margin-left: 10px;
+}
+
+.telegram-link a:hover .telegram-logo {
+    transform: scale(1.2);
+}
+.flex-container p{
+    margin: 0;
+    font-weight: bold;
+    color: #333;
+}
+
+.get-now div, .telegram-link div {
+    margin-left: 50px;
+    color: #005f99;
+    transform: translateY(-5px);
+}
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container1, .container2 {
+        width: 100%;
+        max-width: 90%;
+        padding: 15px;
+    }
+    
+    input, button {
+        font-size: 14px;
+    }
+
+    #currentTime {
+        font-size: 16px;
+    }
+
+    #result {
+        font-size: 16px;
+    }
+}
+
+

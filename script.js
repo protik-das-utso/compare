@@ -46,6 +46,15 @@ function showCurrentTime() {
     setTimeout(showCurrentTime, 1000);
 }
 
+function showResultPopup(content) {
+    document.getElementById("result").innerHTML = content;
+    document.getElementById("resultModal").style.display = "block";
+}
+function closeResultPopup(content) {
+    document.getElementById("resultModal").style.display = "none";
+}
+
+
 function compareValues() {
     let a = document.getElementById("valueA").value.trim();
     let b = document.getElementById("valueB").value.trim();
@@ -61,7 +70,7 @@ function compareValues() {
 
     // Show the loading section when "Get Now" is clicked
     document.getElementById("loading").style.display = "flex"; // Change display to flex to show it
-    document.getElementById("result").innerText = "";
+    
 
     setTimeout(function () {
         document.getElementById("loading").style.display = "none";
@@ -75,24 +84,39 @@ function compareValues() {
                 `USD/CHF= <span style="color: #00ff00; font-weight: bold;">UP/CALL</span><br><br>` +
                 `GBP/USD= <span style="color: #ff0000; font-weight: bold;">DOWN/PUT</span><br>` +
                 `EUR/USD= <span style="color: #ff0000; font-weight: bold;">DOWN/PUT</span><br>` +
-                `AUD/USD= <span style="color: #ff0000; font-weight: bold;">DOWN/PUT</span>` +
-                `<span style="color: #FFA500; font-weight: bold; font-size: 18px;">Use Only 5% Amount in Your Balance</span>`;
+                `AUD/USD= <span style="color: #ff0000; font-weight: bold;">DOWN/PUT</span><br><br>` +
+                `<span style="color: #FFA500; font-weight: bold; font-size: 18px;">Use Only 5% Amount in Your Balance<br><span style="color: #00ff00;">If Lose 3 Minute Reverser.</span></span>`;
         } else if (b > a) {
             result =
-            `<span style="color: #FF0000; font-weight: bold;">Forecast < Previous</span><br><br>` +
-            `USD/JPY = <span style="color: #ff0000; font-weight: bold;">DOWN/PUT</span><br>` +
+                `<span style="color: #FF0000; font-weight: bold;">Forecast < Previous</span><br><br>` +
+                `USD/JPY = <span style="color: #ff0000; font-weight: bold;">DOWN/PUT</span><br>` +
                 `USD/CAD= <span style="color: #ff0000; font-weight: bold;">DOWN/PUT</span><br>` +
                 `USD/CHF= <span style="color: #ff0000; font-weight: bold;">DOWN/PUT</span><br><br>` +
                 `GBP/USD= <span style="color: #00ff00; font-weight: bold;">UP/CALL</span><br>` +
                 `EUR/USD= <span style="color: #00ff00; font-weight: bold;">UP/CALL</span><br>` +
                 `AUD/USD= <span style="color: #00ff00; font-weight: bold;">UP/CALL</span><br><br>` +
-                `<span style="color: #FFA500; font-weight: bold; font-size: 18px;">Use Only 5% Amount in Your Balance</span>`;
+                `<span style="color: #FFA500; font-weight: bold; font-size: 18px;">Use Only 5% Amount in Your Balance<br><span style="color: #00ff00;">If Lose 3 Minute Reverser.</span></span>`;
             } else {
             result = "Both are the same";
         }
 
         
-        document.getElementById("result").innerHTML = result;
-        document.getElementById("result").style.display = "block";
+        showResultPopup(result);
     }, 2000); // 20 seconds delay for loading
+}
+
+function openHelpPopup() {
+    document.getElementById("helpPopup").style.display = "block"
+}
+
+function closeHelpPopup() {
+    document.getElementById("helpPopup").style.display = "none";
+}
+
+// close modal
+window.onclick = function (event) {
+    var modal = document.getElementById("helpPopup");
+    if (event.target == modal) {
+        modal.style.display = "none"
+    }
 }

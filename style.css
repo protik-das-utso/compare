@@ -10,6 +10,21 @@ html, body {
     overflow: hidden;
 }
 
+.welcome-message {
+    font-size: 80px;
+    font-family: Arial, sans-serif;
+    color: #28a745;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.descrip {
+    font-size: 40px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
 /* Container Styling */
 .container1, .container2 {
     background-color: #fff;
@@ -19,7 +34,11 @@ html, body {
     width: 90%;
     max-width: 400px;
     color: #000;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px 35px rgba(255, 0, 255, 0.5), 
+                0 0 30px rgba(0, 255, 255, 0.5),
+                0 0 40px rgba(0, 255, 0, 0.5), 
+                0 0 50px rgba(255, 255, 0, 0.5);
+    animation: neonMove 5s linear infinite;
 }
 
 /* Neon Effect and Shadows */
@@ -31,15 +50,40 @@ html, body {
 }
 
 .container2 {
-    animation: neonMove2 15s ease-in-out infinite;
+    animation: neonMove 15s ease-in-out infinite;
 }
 
-@keyframes neonMove2 {
-    0% { box-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff, 0 0 30px #00ff00, 0 0 40px #ffff00; }
-    25% { box-shadow: 0 0 10px #00ffff, 0 0 20px #00ff00, 0 0 30px #ffff00, 0 0 40px #ff00ff; }
-    50% { box-shadow: 0 0 10px #00ff00, 0 0 20px #ffff00, 0 0 30px #ff00ff, 0 0 40px #00ffff; }
-    75% { box-shadow: 0 0 10px #ffff00, 0 0 20px #ff00ff, 0 0 30px #00ffff, 0 0 40px #00ff00; }
-    100% { box-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff, 0 0 30px #00ff00, 0 0 40px #ffff00; }
+@keyframes neonMove {
+    0% {
+        box-shadow: 0 0 20px rgba(255, 0, 255, 0.5), 
+                    0 0 30px rgba(0, 255, 255, 0.5),
+                    0 0 40px rgba(0, 255, 0, 0.5), 
+                    0 0 50px rgba(255, 255, 0, 0.5);
+    }
+    25% {
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 
+                    0 0 30px rgba(0, 255, 0, 0.5),
+                    0 0 40px rgba(255, 255, 0, 0.5), 
+                    0 0 50px rgba(255, 0, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.5), 
+                    0 0 30px rgba(255, 255, 0, 0.5),
+                    0 0 40px rgba(255, 0, 255, 0.5), 
+                    0 0 50px rgba(0, 255, 255, 0.5);
+    }
+    75% {
+        box-shadow: 0 0 20px rgba(255, 255, 0, 0.5), 
+                    0 0 30px rgba(255, 0, 255, 0.5),
+                    0 0 40px rgba(0, 255, 255, 0.5), 
+                    0 0 50px rgba(0, 255, 0, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(255, 0, 255, 0.5), 
+                    0 0 30px rgba(0, 255, 255, 0.5),
+                    0 0 40px rgba(0, 255, 0, 0.5), 
+                    0 0 50px rgba(255, 255, 0, 0.5);
+    }
 }
 
 /* Input Fields */
@@ -123,27 +167,88 @@ button:hover {
     white-space: pre-wrap; 
 }
 
-.telegram-link {
+
+
+.help-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.help-icon img {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-sahdow 0.3s ease;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 40px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.close {
+    margin-top: -20px;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.get-now, .telegram-link {
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
-    text-align: center;
 }
 
-.telegram-link a {
-    display: flex;
-    align-items: center;
+.get-now a, .telegram-link a {
     text-decoration: none;
     color: #0088cc;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
     transition: color 0.3s ease;
 }
 
-.telegram-link a:hover {
+.get-now a:hover, .telegram-link a:hover {
     color: #005f99;
+    transform: translateY(-5px);
 }
+
 
 .telegram-logo {
     width: 24px;
@@ -152,12 +257,34 @@ button:hover {
     transition: transform 0.3s ease;
 }
 
-.telegram-link a:hover .telegram-logo {
+.get-now a:hover .telegram-logo, .telegram-link a:hover .telegram-logo{
     transform: scale(1.2);
 }
 
+.get-now {
+    margin-right: 10px;
+}
+.get-now p{
+    color: red !important;
+}
+.telegram-link {
+    margin-left: 10px;
+}
 
+.telegram-link a:hover .telegram-logo {
+    transform: scale(1.2);
+}
+.flex-container p{
+    margin: 0;
+    font-weight: bold;
+    color: #333;
+}
 
+.get-now div, .telegram-link div {
+    margin-left: 50px;
+    color: #005f99;
+    transform: translateY(-5px);
+}
 /* Responsive Design */
 @media (max-width: 600px) {
     .container1, .container2 {

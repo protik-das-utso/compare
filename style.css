@@ -1,4 +1,4 @@
-/*General Styling*/
+/* General Styling */
 html, body {
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
@@ -15,6 +15,7 @@ html, body {
     font-family: Arial, sans-serif;
     color: #28a745;
     margin-bottom: 20px;
+    margin-top: 0px;
     text-align: center;
 }
 .descrip {

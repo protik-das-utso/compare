@@ -9,37 +9,88 @@
 </head>
 
 <body>
+    <div class="container">
+        <h1 class="welcome-message">WELCOME</h1>
+        <p class="descrip">News Signal Checker</p>
 
-    <!-- Login -->
 
-    <div class="container1" id="loginContainer" style="display: block;">
-        <input type="text" name="" id="username" placeholder="Username">
-        <input type="password" name="" id="password" placeholder="Password">
-        <button onclick="login()">Login</button>
-        <div id="loginResult"></div>
-        <!-- Telegram Link -->
-        <div class="telegram-link">
-            <a href="https://t.me/nsateambd" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Logo"
-                    class="telegram-logo">
-                Join Our Telegram
+        <!-- Login -->
 
+        <div class="container1" id="loginContainer" style="display: none;">
+            <input type="text" name="" id="username" placeholder="Username">
+            <input type="password" name="" id="password" placeholder="Password">
+            <button onclick="login()">Login</button>
+            <div id="loginResult"></div>
+            <!-- Telegram Link -->
+            <div class="telegram-link">
+                <a href="https://t.me/nsapayment" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Logo"
+                        class="telegram-logo">
+                    Contact Admin
+
+                </a>
+            </div>
+        </div>
+
+        <!-- Form -->
+        <div class="container2" id="compareContainer" style="display: block;">
+            <div id="currentTime"></div>
+            <h2 class="neon">Generate News Signal</h2>
+            <input type="text" name="" id="valueA" placeholder="Forecast Value: ">
+            <input type="text" name="" id="valueB" placeholder="Previous Value: ">
+            <button onclick="compareValues()">Get Now</button>
+            <div id="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Please Wait<br><br>News Checking</p>
+            </div>
+            <div class="modal" id="resultModal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeResultPopup()">&times;</span>
+                    <div id="result"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Help Icon -->
+        <div class="help-icon">
+            <a href="#" title="Need Help ?" onclick="openHelpPopup()">
+                <img src="help.png" alt="Help Icon">
             </a>
         </div>
-    </div>
 
-    <!-- Form -->
-    <div class="container2" id="compareContainer" style="display: none;">
-        <div id="currentTime"></div>
-        <h2 class="neon">Generate News Signal</h2>
-        <input type="text" name="" id="valueA" placeholder="Forecast Value: ">
-        <input type="text" name="" id="valueB" placeholder="Previous Value: ">
-        <button onclick="compareValues()">Get Now</button>
-        <div id="loading" style="display: none;">
-            <div class="spinner"></div>
-            <p>Please Wait<br><br>News Checking</p>
-        </div>
-        <div id="result" style="display: none;"></div>
+        <!-- Help Popup -->
+         <div class="modal" id="helpPopup">
+             <div class="modal-content">
+                <span class="close" onclick="closeHelpPopup()">&times;</span>
+                <h2 style="text-align:center">Help & Instructions</h2>
+                
+                <div class="flex-container">
+                    <div class="get-now">
+                        <p>Forecast & Previous Value Find</p>
+                        <div>
+                            <a href="https://www.forexfactory.com/" target="_blank">
+                                <img src="web.png" alt="Telegram Logo"
+                                    class="telegram-logo">
+                                Get Now
+                        
+                            </a>
+                        </div>
+                    </div>
+                    <div class="telegram-link">
+                        <p>For Username & Paswword Contact</p>
+                        <div>
+                            <a href="https://t.me/nsapayment" target="_blank">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Logo"
+                                    class="telegram-logo">
+                                Contact Admin
+                        
+                            </a>
+                        </div>
+                    </div>
+                </div>
+             </div>
+         </div>
+        
     </div>
 
     <script src="script.js"></script>
